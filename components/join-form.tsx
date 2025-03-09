@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label"
 export default function JoinForm() {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
+  const [phone, setPhone] = useState("")
   const [linkedin, setLinkedin] = useState("")
   const [instagram, setInstagram] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -41,6 +42,7 @@ export default function JoinForm() {
     const formData = {
       name,
       email,
+      phone,
       linkedin,
       instagram
     }
@@ -60,6 +62,7 @@ export default function JoinForm() {
         // Reset form fields after successful submission
         setName("")
         setEmail("")
+        setPhone("")
         setLinkedin("")
         setInstagram("")
       } else {
@@ -102,12 +105,12 @@ export default function JoinForm() {
               Your Name
             </Label>
             <Input
-              id="name"
               type="text"
-              placeholder="Your Name*"
+              id="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="bg-white/80 border-pink-200"
+              className="bg-white/80 border-pink-200 text-gray-900"
+              placeholder="Your Name*"
               required
             />
           </div>
@@ -117,13 +120,27 @@ export default function JoinForm() {
               Email Address
             </Label>
             <Input
-              id="email"
               type="email"
-              placeholder="Your Email*"
+              id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="bg-white/80 border-pink-200"
+              className="bg-white/80 border-pink-200 text-gray-900"
+              placeholder="Your Email*"
               required
+            />
+          </div>
+          
+          <div className="space-y-2">
+            <Label htmlFor="phone" className="text-pink-700 font-medium">
+              Phone Number
+            </Label>
+            <Input
+              type="tel"
+              id="phone"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              className="bg-white/80 border-pink-200 text-gray-900"
+              placeholder="Your Phone Number"
             />
           </div>
           
@@ -132,12 +149,12 @@ export default function JoinForm() {
               LinkedIn Profile
             </Label>
             <Input
-              id="linkedin"
               type="text"
-              placeholder="LinkedIn Profile (optional)"
+              id="linkedin"
               value={linkedin}
               onChange={(e) => setLinkedin(e.target.value)}
-              className="bg-white/80 border-pink-200"
+              className="bg-white/80 border-pink-200 text-gray-900"
+              placeholder="LinkedIn URL"
             />
           </div>
           
@@ -146,12 +163,12 @@ export default function JoinForm() {
               Instagram Handle
             </Label>
             <Input
-              id="instagram"
               type="text"
-              placeholder="Instagram Handle (optional)"
+              id="instagram"
               value={instagram}
               onChange={(e) => setInstagram(e.target.value)}
-              className="bg-white/80 border-pink-200"
+              className="bg-white/80 border-pink-200 text-gray-900"
+              placeholder="@yourusername"
             />
           </div>
           
