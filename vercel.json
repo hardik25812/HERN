@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build",
+  "installCommand": "npm install --legacy-peer-deps",
+  "framework": "nextjs",
+  "env": {
+    "GOOGLE_SHEET_ID": "your-google-sheet-id-here"
+  }
+}
