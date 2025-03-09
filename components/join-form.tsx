@@ -1,82 +1,86 @@
 "use client"
 
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
+import { Loader2 } from "lucide-react"
 import { Label } from "@/components/ui/label"
-import { Card } from "@/components/ui/card"
 
 export default function JoinForm() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    linkedin: "",
-    instagram: "",
-  })
-
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [linkedin, setLinkedin] = useState("")
+  const [instagram, setInstagram] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [message, setMessage] = useState("")
   const [error, setError] = useState("")
 
-  const handleChange = (e) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }))
+  const validateEmail = (email: string) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    return re.test(email)
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setError("")
-
-    if (!formData.name || !formData.email || !formData.linkedin || !formData.instagram) {
-      setError("Please fill in all fields")
+    setMessage("")
+    
+    // Basic validation
+    if (!name || !email) {
+      setError("Name and email are required fields.")
       return
     }
 
-    // Simple email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailRegex.test(formData.email)) {
-      setError("Please enter a valid email address")
+    if (!validateEmail(email)) {
+      setError("Please enter a valid email address.")
       return
     }
 
     setIsSubmitting(true)
 
+    const formData = {
+      name,
+      email,
+      linkedin,
+      instagram
+    }
+
     try {
-      // Submit to API endpoint
-      const response = await fetch('/api/submit-form', {
-        method: 'POST',
+      // Replace this URL with your actual Formspree form ID
+      const response = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       })
 
-      if (!response.ok) {
-        throw new Error('Failed to submit form')
+      if (response.ok) {
+        setMessage("Your information has been submitted! We'll be in touch soon.")
+        // Reset form fields after successful submission
+        setName("")
+        setEmail("")
+        setLinkedin("")
+        setInstagram("")
+      } else {
+        setError("There was an error submitting your information. Please try again.")
       }
-
-      // Save form data to localStorage as backup
-      localStorage.setItem("herNetworkingFormData", JSON.stringify(formData))
-      setIsSubmitting(false)
-      setIsSubmitted(true)
-    } catch (err) {
-      console.error("Error submitting form:", err)
-      setError("Something went wrong. Please try again.")
+    } catch (error) {
+      setError("There was an error submitting your information. Please try again.")
+      console.error("Form submission error:", error)
+    } finally {
       setIsSubmitting(false)
     }
   }
 
-  if (isSubmitted) {
-    return (
-      <Card className="bg-white p-6 rounded-xl">
+  return (
+    <div className="bg-white p-6 rounded-xl">
+      {message ? (
         <div className="text-center">
-          <div className="mx-auto mb-4 bg-pink-100 rounded-full p-3 w-16 h-16 flex items-center justify-center">
+          <div className="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-10 w-10 text-pink-600"
+              className="h-8 w-8 text-green-600"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -89,84 +93,83 @@ export default function JoinForm() {
             Thank you for joining HERNetworking Hub! We're excited to have you as part of our community.
           </p>
         </div>
-      </Card>
-    )
-  }
-
-  return (
-    <Card className="bg-white p-6 rounded-xl">
-      <form onSubmit={handleSubmit} className="space-y-4">
-        {error && (
-          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
-            {error}
+      ) : (
+        <form onSubmit={handleSubmit} className="space-y-4">
+          {error && <div className="bg-red-100 border-red-400 border p-2 rounded-md text-red-700">{error}</div>}
+          
+          <div className="space-y-2">
+            <Label htmlFor="name" className="text-pink-700 font-medium">
+              Your Name
+            </Label>
+            <Input
+              id="name"
+              type="text"
+              placeholder="Your Name*"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="bg-white/80 border-pink-200"
+              required
+            />
           </div>
-        )}
-        
-        <div className="space-y-2">
-          <Label htmlFor="name" className="text-pink-700 font-medium">
-            Your Name
-          </Label>
-          <Input
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            placeholder="Enter your full name"
-            className="border-pink-200 focus:border-pink-400"
-          />
-        </div>
-
-        <div className="space-y-2">
-          <Label htmlFor="email" className="text-pink-700 font-medium">
-            Email Address
-          </Label>
-          <Input
-            id="email"
-            name="email"
-            type="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="your.email@example.com"
-            className="border-pink-200 focus:border-pink-400"
-          />
-        </div>
-
-        <div className="space-y-2">
-          <Label htmlFor="linkedin" className="text-pink-700 font-medium">
-            LinkedIn Profile
-          </Label>
-          <Input
-            id="linkedin"
-            name="linkedin"
-            value={formData.linkedin}
-            onChange={handleChange}
-            placeholder="linkedin.com/in/yourprofile"
-            className="border-pink-200 focus:border-pink-400"
-          />
-        </div>
-
-        <div className="space-y-2">
-          <Label htmlFor="instagram" className="text-pink-700 font-medium">
-            Instagram Handle
-          </Label>
-          <Input
-            id="instagram"
-            name="instagram"
-            value={formData.instagram}
-            onChange={handleChange}
-            placeholder="@yourusername"
-            className="border-pink-200 focus:border-pink-400"
-          />
-        </div>
-
-        <Button
-          type="submit"
-          className="w-full bg-gradient-to-r from-pink-600 to-pink-500 hover:from-pink-700 hover:to-pink-600 text-white py-5 rounded-lg font-bold text-lg"
-          disabled={isSubmitting}
-        >
-          {isSubmitting ? "Processing..." : "Join the Community"}
-        </Button>
-      </form>
-    </Card>
+          
+          <div className="space-y-2">
+            <Label htmlFor="email" className="text-pink-700 font-medium">
+              Email Address
+            </Label>
+            <Input
+              id="email"
+              type="email"
+              placeholder="Your Email*"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="bg-white/80 border-pink-200"
+              required
+            />
+          </div>
+          
+          <div className="space-y-2">
+            <Label htmlFor="linkedin" className="text-pink-700 font-medium">
+              LinkedIn Profile
+            </Label>
+            <Input
+              id="linkedin"
+              type="text"
+              placeholder="LinkedIn Profile (optional)"
+              value={linkedin}
+              onChange={(e) => setLinkedin(e.target.value)}
+              className="bg-white/80 border-pink-200"
+            />
+          </div>
+          
+          <div className="space-y-2">
+            <Label htmlFor="instagram" className="text-pink-700 font-medium">
+              Instagram Handle
+            </Label>
+            <Input
+              id="instagram"
+              type="text"
+              placeholder="Instagram Handle (optional)"
+              value={instagram}
+              onChange={(e) => setInstagram(e.target.value)}
+              className="bg-white/80 border-pink-200"
+            />
+          </div>
+          
+          <Button 
+            type="submit" 
+            className="w-full bg-pink-700 hover:bg-pink-800 text-lg py-6" 
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? (
+              <>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Submitting...
+              </>
+            ) : (
+              "Join the Community 💪"
+            )}
+          </Button>
+        </form>
+      )}
+    </div>
   )
 }
