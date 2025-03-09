@@ -15,13 +15,18 @@ export default function HERNetworkingHub() {
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto space-y-4">
             <div className="text-center">
-              <h1 className="text-4xl md:text-5xl font-light tracking-wide font-serif text-white">HERNetworking Hub</h1>
-              <h2 className="text-xl md:text-2xl font-medium bg-pink-600 inline-block px-4 py-2 rounded-lg mt-2">
+              <h1 className="text-4xl md:text-5xl font-bold text-pink-500 text-center">
+                HERNETWORKING HUB
+              </h1>
+              <p className="text-lg mt-2 font-cursive text-pink-300">
+                Network . Grow . Succeed
+              </p>
+              <h2 className="text-xl md:text-2xl font-medium bg-pink-600 inline-block px-4 py-2 rounded-lg mt-3">
                 Ambitious Women Deserve Powerful Networks
               </h2>
             </div>
             <p className="text-base text-pink-300 text-left">
-              🌟 HERNETWORKING HUB is an exclusive community for women entrepreneurs, founders, investors, coaches, finance professionals, business owners, creators, industry leaders, and media who are ready to connect, collaborate, and create real impact.
+              🌟 HERNETWORKING HUB is an exclusive community for women entrepreneurs, founders, investors, coaches, finance professionals, business owners, creators, industry leaders, and media who are ready to connect, collaborate, and create real impact. If you're ready to network with purpose, elevate your business, and grow with a community of powerhouse women, this is your sign to join us! Let's rise together.
             </p>
           </div>
         </div>
@@ -111,7 +116,9 @@ export default function HERNetworkingHub() {
 
           <JoinForm />
 
-          <p className="text-lg mt-6 font-cursive">💡 Let's build, grow, and succeed together. The best time to start is NOW!</p>
+          <p className="text-lg mt-6 font-cursive">
+            Network . Grow . Succeed
+          </p>
         </section>
       </main>
 

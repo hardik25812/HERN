@@ -48,26 +48,26 @@ export default function JoinForm() {
     }
 
     try {
-      // Replace this URL with your actual Formspree form ID
-      const response = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
+      // Using the Google Apps Script URL to connect to your Google Sheet
+      const response = await fetch("https://script.google.com/macros/s/AKfycbxyT8LIN5Old74KmpHZne-h2L2LM1O-smZOpkIm4lxsTa2dMDOeZosig909BnhFEWaLEA/exec", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
-      })
+        mode: "no-cors", // Important for cross-origin requests to Google Apps Script
+      });
 
-      if (response.ok) {
-        setMessage("Your information has been submitted! We'll be in touch soon.")
-        // Reset form fields after successful submission
-        setName("")
-        setEmail("")
-        setPhone("")
-        setLinkedin("")
-        setInstagram("")
-      } else {
-        setError("There was an error submitting your information. Please try again.")
-      }
+      // Since we're using no-cors, we can't actually check response.ok
+      // We assume success unless there's an error in the fetch itself
+      setMessage("Your information has been submitted! We'll be in touch soon.")
+      
+      // Reset form fields after successful submission
+      setName("")
+      setEmail("")
+      setPhone("")
+      setLinkedin("")
+      setInstagram("")
     } catch (error) {
       setError("There was an error submitting your information. Please try again.")
       console.error("Form submission error:", error)
