@@ -47,7 +47,7 @@ export default function HERNetworkingHub() {
         {/* Benefits */}
         <section className="mb-12">
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-white mb-8 text-center">What You'll Gain by Joining:</h2>
+            <h2 className="text-3xl font-bold text-white mb-8 text-center">What you all Gain by Joining:</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -112,13 +112,9 @@ export default function HERNetworkingHub() {
 
         {/* CTA Section with Form */}
         <section id="join-form-section" className="text-center max-w-3xl mx-auto bg-gradient-to-r from-pink-700 to-pink-600 p-6 rounded-xl text-white">
-          <h2 className="text-2xl font-bold mb-6 font-serif">Start Your Networking Journey</h2>
+          <h2 className="text-2xl font-bold mb-6 font-serif">Start Your Networking</h2>
 
           <JoinForm />
-
-          <p className="text-lg mt-6 font-cursive">
-            Network . Grow . Succeed
-          </p>
         </section>
       </main>
 
@@ -126,7 +122,6 @@ export default function HERNetworkingHub() {
       <footer className="bg-pink-900 text-white py-6 px-6">
         <div className="container mx-auto text-center">
           <h2 className="text-xl font-bold mb-2">HERNetworking Hub</h2>
-          <p className="mb-4">A Powerful Community for Women in Business & Aspiring Entrepreneurs</p>
           <p className="text-sm">{'Copyright ' + new Date().getFullYear()} HERNetworking Hub. All rights reserved.</p>
         </div>
       </footer>
