@@ -112,7 +112,7 @@ export default function HERNetworkingHub() {
 
         {/* CTA Section with Form */}
         <section id="join-form-section" className="text-center max-w-3xl mx-auto bg-gradient-to-r from-pink-700 to-pink-600 p-6 rounded-xl text-white">
-          <h2 className="text-2xl font-bold mb-6 font-serif">Start Your Networking</h2>
+          <h2 className="text-2xl font-bold mb-6 font-serif">Start your Networking journey now</h2>
 
           <JoinForm />
         </section>
