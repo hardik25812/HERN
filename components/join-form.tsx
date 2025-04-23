@@ -8,8 +8,9 @@ import { Label } from "@/components/ui/label"
 
 export default function JoinForm() {
   const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
+  const [email, setEmail] = useState("") 
   const [phone, setPhone] = useState("")
+  const [profession, setProfession] = useState("")
   const [linkedin, setLinkedin] = useState("")
   const [instagram, setInstagram] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -43,6 +44,7 @@ export default function JoinForm() {
       name,
       email,
       phone,
+      profession,
       linkedin,
       instagram
     }
@@ -66,6 +68,7 @@ export default function JoinForm() {
       setName("")
       setEmail("")
       setPhone("")
+      setProfession("")
       setLinkedin("")
       setInstagram("")
     } catch (error) {
@@ -141,6 +144,20 @@ export default function JoinForm() {
               onChange={(e) => setPhone(e.target.value)}
               className="bg-white/80 border-pink-200 text-gray-900"
               placeholder="Your Phone Number"
+            />
+          </div>
+          
+          <div className="space-y-2">
+            <Label htmlFor="profession" className="text-pink-700 font-medium">
+              Profession
+            </Label>
+            <Input
+              type="text"
+              id="profession"
+              value={profession}
+              onChange={(e) => setProfession(e.target.value)}
+              className="bg-white/80 border-pink-200 text-gray-900"
+              placeholder="Your Profession"
             />
           </div>
           
