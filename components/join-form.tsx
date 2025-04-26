@@ -50,18 +50,31 @@ export default function JoinForm() {
     }
 
     try {
+      console.log("Submitting form data:", formData);
+      
       // Using the Google Apps Script URL to connect to your Google Sheet
-      const response = await fetch("https://script.google.com/macros/s/AKfycbxyT8LIN5Old74KmpHZne-h2L2LM1O-smZOpkIm4lxsTa2dMDOeZosig909BnhFEWaLEA/exec", {
+      const response = await fetch("https://script.google.com/macros/s/AKfycbxMLRyaCtA2bnetQlJjsf_32FZcvXE_uZPOow7KoWvGyWP3BIE3yTnnAKVRWKawTCnT/exec", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
-        mode: "no-cors", // Important for cross-origin requests to Google Apps Script
+        mode: "cors", // Try with cors mode first
+        redirect: "follow"
+      }).catch(error => {
+        console.log("Initial fetch failed, trying with no-cors:", error);
+        // Fall back to no-cors if cors fails
+        return fetch("https://script.google.com/macros/s/AKfycbxMLRyaCtA2bnetQlJjsf_32FZcvXE_uZPOow7KoWvGyWP3BIE3yTnnAKVRWKawTCnT/exec", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+          mode: "no-cors"
+        });
       });
 
-      // Since we're using no-cors, we can't actually check response.ok
-      // We assume success unless there's an error in the fetch itself
+      console.log("Form submission response:", response);
       setMessage("Your information has been submitted! We'll be in touch soon.")
       
       // Reset form fields after successful submission
@@ -199,7 +212,7 @@ export default function JoinForm() {
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Submitting...
               </>
             ) : (
-              "Join the Community 💪"
+              "Join the Community 💎"
             )}
           </Button>
         </form>
