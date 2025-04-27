@@ -53,7 +53,8 @@ export default function JoinForm() {
       console.log("Submitting form data:", formData);
       
       // Using the Google Apps Script URL to connect to your Google Sheet
-      const response = await fetch("https://script.google.com/macros/s/AKfycbxMLRyaCtA2bnetQlJjsf_32FZcvXE_uZPOow7KoWvGyWP3BIE3yTnnAKVRWKawTCnT/exec", {
+      // Using the Google Apps Script URL to connect to your Google Sheet
+      const response = await fetch("https://script.google.com/macros/s/AKfycbzYYv988fecoOskD9W7jU9MHEJnzsSBwb7Im1hdOzhnh3pTqFVGglALSob039pHBY52VA/exec", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -64,7 +65,7 @@ export default function JoinForm() {
       }).catch(error => {
         console.log("Initial fetch failed, trying with no-cors:", error);
         // Fall back to no-cors if cors fails
-        return fetch("https://script.google.com/macros/s/AKfycbxMLRyaCtA2bnetQlJjsf_32FZcvXE_uZPOow7KoWvGyWP3BIE3yTnnAKVRWKawTCnT/exec", {
+        return fetch("https://script.google.com/macros/s/AKfycbzYYv988fecoOskD9W7jU9MHEJnzsSBwb7Im1hdOzhnh3pTqFVGglALSob039pHBY52VA/exec", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
