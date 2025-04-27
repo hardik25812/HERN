@@ -3,6 +3,8 @@
 import { useState } from "react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+import { ButtonCta } from "@/components/ui/button-cta"
+import { TextEffect } from "@/components/ui/text-effect"
 import { Loader2 } from "lucide-react"
 import { Label } from "@/components/ui/label"
 
@@ -203,9 +205,9 @@ export default function JoinForm() {
             />
           </div>
           
-          <Button 
+          <ButtonCta 
             type="submit" 
-            className="w-full bg-pink-700 hover:bg-pink-800 text-lg py-6" 
+            className="w-full py-6" 
             disabled={isSubmitting}
           >
             {isSubmitting ? (
@@ -213,9 +215,25 @@ export default function JoinForm() {
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Submitting...
               </>
             ) : (
-              "Join the Community 💎"
+              <div className="flex items-center justify-center">
+                <TextEffect 
+                  per="char" 
+                  preset="scale" 
+                  className="text-white"
+                >
+                  Join the Community
+                </TextEffect>
+                <TextEffect 
+                  per="char" 
+                  preset="scale" 
+                  delay={0.5}
+                  className="text-white text-xl ml-1"
+                >
+                  💎
+                </TextEffect>
+              </div>
             )}
-          </Button>
+          </ButtonCta>
         </form>
       )}
     </div>

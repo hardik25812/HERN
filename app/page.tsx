@@ -26,7 +26,7 @@ export default function HERNetworkingHub() {
               </h2>
             </div>
             <p className="text-base text-pink-300 text-left">
-              🌟 HERNETWORKING HUB is an exclusive women community for entrepreneurs, founders, investors, coaches, finance professionals, business owners, creators, industry leaders, and media who are ready to connect, collaborate, and create real impact. If you're ready to network with purpose, elevate your business, and grow with a community of powerhouse women, this is your sign to join us! Let's rise together.
+              🌟 HERNETWORKING HUB is an exclusive women community for <span className="font-bold bg-pink-700 px-2 py-1 rounded">entrepreneurs, founders, investors, coaches, finance professionals, business owners, creators, industry leaders, and media</span> who are ready to connect, collaborate, and create real impact. If you're ready to network with purpose, elevate your business, and grow with a community of powerhouse women, this is your sign to join us! Let's rise together.
             </p>
           </div>
         </div>
@@ -112,7 +112,7 @@ export default function HERNetworkingHub() {
 
         {/* CTA Section with Form */}
         <section id="join-form-section" className="text-center max-w-3xl mx-auto bg-gradient-to-r from-pink-700 to-pink-600 p-6 rounded-xl text-white">
-          <h2 className="text-2xl font-bold mb-6 font-serif text-amber-400">Start your Networking journey now</h2>
+          <h2 className="text-2xl font-bold mb-6 font-serif text-amber-400">Start your networking here</h2>
 
           <JoinForm />
         </section>
