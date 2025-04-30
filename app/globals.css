@@ -8,6 +8,7 @@
     --font-serif: var(--font-playfair);
     --font-cursive: var(--font-dancing-script);
     --font-satisfy: var(--font-satisfy);
+    --font-moontime: var(--font-moontime);
 
     --background: 0 0% 100%;
     --foreground: 222.2 47.4% 11.2%;
@@ -101,5 +102,9 @@
 
   .font-satisfy {
     font-family: var(--font-satisfy);
+  }
+  
+  .font-moontime {
+    font-family: var(--font-moontime);
   }
 }

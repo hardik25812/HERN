@@ -85,7 +85,7 @@ export default function HERNetworkingHub() {
               <div className="flex-shrink-0 mr-3">
                 <span className="inline-block bg-pink-500 text-white rounded-full p-1">⚜</span>
               </div>
-              <p className="text-lg text-pink-300 font-satisfy">
+              <p className="text-lg text-pink-300 font-moontime">
                 <em>A high-achieving woman feeling lonely at the top</em> – Connect with ambitious women who get it.
               </p>
             </div>
@@ -94,7 +94,7 @@ export default function HERNetworkingHub() {
               <div className="flex-shrink-0 mr-3">
                 <span className="inline-block bg-pink-500 text-white rounded-full p-1">⚜</span>
               </div>
-              <p className="text-lg text-pink-300 font-satisfy">
+              <p className="text-lg text-pink-300 font-moontime">
                 <em>Looking for a like-minded, empowering network</em> – Collaborate, grow, and build together.
               </p>
             </div>
@@ -103,7 +103,7 @@ export default function HERNetworkingHub() {
               <div className="flex-shrink-0 mr-3">
                 <span className="inline-block bg-pink-500 text-white rounded-full p-1">⚜</span>
               </div>
-              <p className="text-lg text-pink-300 font-satisfy">
+              <p className="text-lg text-pink-300 font-moontime">
                 <em>Seeking a safe space to share & uplift</em> – Exchange ideas, get support, and help other women rise.
               </p>
             </div>
