@@ -20,12 +20,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} ${playfair.variable} ${dancingScript.variable} font-sans`}>
+    <html lang="en" className="light" suppressHydrationWarning>
+      <body className={`${inter.variable} ${playfair.variable} ${dancingScript.variable} font-sans`} suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
           enableSystem
+          disableTransitionOnChange
         >
           {children}
           <Analytics />

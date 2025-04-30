@@ -221,7 +221,7 @@ export default function JoinForm() {
                   preset="scale" 
                   className="text-white"
                 >
-                  Join the Community
+                  Join the Wait List 💎
                 </TextEffect>
                 <TextEffect 
                   per="char" 

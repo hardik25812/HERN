@@ -1,4 +1,6 @@
-'use client';
+<TextEffect per="word" preset="slide" className="text-white">
+  Join the Community 💎
+</TextEffect>'use client';
 
 import React, { useState, useEffect } from "react";
 import { TextEffect } from "@/components/ui/text-effect";
