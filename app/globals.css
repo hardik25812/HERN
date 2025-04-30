@@ -7,6 +7,7 @@
     --font-sans: var(--font-inter);
     --font-serif: var(--font-playfair);
     --font-cursive: var(--font-dancing-script);
+    --font-satisfy: var(--font-satisfy);
 
     --background: 0 0% 100%;
     --foreground: 222.2 47.4% 11.2%;
@@ -96,5 +97,9 @@
 
   .font-serif {
     font-family: var(--font-serif);
+  }
+
+  .font-satisfy {
+    font-family: var(--font-satisfy);
   }
 }
