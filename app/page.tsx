@@ -25,8 +25,10 @@ export default function HERNetworkingHub() {
                 Ambitious Women Deserve Powerful Networks
               </h2>
             </div>
-            <p className="text-base text-pink-300 text-left mt-8">
-              🌟 HERNETWORKING HUB is an exclusive women community for <span className="font-bold bg-pink-700 px-2 py-1 rounded">entrepreneurs, founders, investors, coaches, finance professionals, business owners, creators, industry leaders, and media</span> who are ready to connect, collaborate, and create real impact. If you're ready to network with purpose, elevate your business, and grow with a community of powerhouse women, this is your sign to join us! Let's rise together.
+            <p className="text-base text-pink-300 text-left mt-12">
+              🌟 HERNETWORKING HUB is an exclusive women community for <span className="font-bold bg-pink-700 px-2 py-1 rounded">entrepreneurs, founders, investors, coaches, finance professionals, business owners, creators, industry leaders, and media</span><span className="ml-2"></span> who are ready to connect, collaborate, and create real impact. 
+              
+              <span className="block mt-4">If you're ready to network with purpose, elevate your business, and grow with a community of powerhouse women, this is your sign to join us! Let's rise together.</span>
             </p>
           </div>
         </div>
@@ -47,7 +49,7 @@ export default function HERNetworkingHub() {
         {/* Benefits */}
         <section className="mb-12">
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-white mb-8 text-center">What You'll Access Inside the Community</h2>
+            <h2 className="text-3xl font-moontime text-yellow-400 mb-8 text-center">What You'll Access Inside the Community</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

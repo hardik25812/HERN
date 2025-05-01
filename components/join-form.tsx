@@ -56,7 +56,7 @@ export default function JoinForm() {
       
       // Using the Google Apps Script URL to connect to your Google Sheet
       // Using the Google Apps Script URL to connect to your Google Sheet
-      const response = await fetch("https://script.google.com/macros/s/AKfycbzYYv988fecoOskD9W7jU9MHEJnzsSBwb7Im1hdOzhnh3pTqFVGglALSob039pHBY52VA/exec", {
+      const response = await fetch("https://script.google.com/macros/s/AKfycbyNpwlmEj-vQitiwEJEGdBQao7lMKfJcgd4M-seCaDtJi-tOMDkTOiUzEOB3knF4r0ZFg/exec", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -67,7 +67,7 @@ export default function JoinForm() {
       }).catch(error => {
         console.log("Initial fetch failed, trying with no-cors:", error);
         // Fall back to no-cors if cors fails
-        return fetch("https://script.google.com/macros/s/AKfycbzYYv988fecoOskD9W7jU9MHEJnzsSBwb7Im1hdOzhnh3pTqFVGglALSob039pHBY52VA/exec", {
+        return fetch("https://script.google.com/macros/s/AKfycbyNpwlmEj-vQitiwEJEGdBQao7lMKfJcgd4M-seCaDtJi-tOMDkTOiUzEOB3knF4r0ZFg/exec", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -78,7 +78,7 @@ export default function JoinForm() {
       });
 
       console.log("Form submission response:", response);
-      setMessage("Your information has been submitted! We'll be in touch soon.")
+      setMessage("Your information has been submitted! Check your email for a confirmation.")
       
       // Reset form fields after successful submission
       setName("")
@@ -113,6 +113,9 @@ export default function JoinForm() {
           <h3 className="text-2xl font-bold text-pink-700 mb-2">You're In!</h3>
           <p className="text-pink-600">
             Thank you for joining HERNetworking Hub! We're excited to have you as part of our community.
+          </p>
+          <p className="text-pink-600 mt-2">
+            <span className="font-medium">✉️ Check your inbox:</span> We've sent a confirmation email to your registered email address.
           </p>
         </div>
       ) : (
@@ -216,7 +219,7 @@ export default function JoinForm() {
               </>
             ) : (
               <div className="flex items-center justify-center">
-                <span className="text-white">Join Community 👭</span>
+                <span className="text-white">Join the Waitlist 👭</span>
               </div>
             )}
           </ButtonCta>
