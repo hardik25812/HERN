@@ -13,8 +13,10 @@ export default function JoinForm() {
   const [email, setEmail] = useState("") 
   const [phone, setPhone] = useState("")
   const [profession, setProfession] = useState("")
+  const [company, setCompany] = useState("")
   const [linkedin, setLinkedin] = useState("")
   const [instagram, setInstagram] = useState("")
+  const [country, setCountry] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [message, setMessage] = useState("")
   const [error, setError] = useState("")
@@ -47,8 +49,10 @@ export default function JoinForm() {
       email,
       phone,
       profession,
+      company,
       linkedin,
-      instagram
+      instagram,
+      country
     }
 
     try {
@@ -85,8 +89,10 @@ export default function JoinForm() {
       setEmail("")
       setPhone("")
       setProfession("")
+      setCompany("")
       setLinkedin("")
       setInstagram("")
+      setCountry("")
     } catch (error) {
       setError("There was an error submitting your information. Please try again.")
       console.error("Form submission error:", error)
@@ -168,7 +174,7 @@ export default function JoinForm() {
           
           <div className="space-y-2">
             <Label htmlFor="profession" className="text-pink-700 font-medium">
-              Profession
+              Job/Profession
             </Label>
             <Input
               type="text"
@@ -177,6 +183,20 @@ export default function JoinForm() {
               onChange={(e) => setProfession(e.target.value)}
               className="bg-white/80 border-pink-200 text-gray-900"
               placeholder="Your Profession"
+            />
+          </div>
+          
+          <div className="space-y-2">
+            <Label htmlFor="company" className="text-pink-700 font-medium">
+              Company/Portfolio
+            </Label>
+            <Input
+              type="text"
+              id="company"
+              value={company}
+              onChange={(e) => setCompany(e.target.value)}
+              className="bg-white/80 border-pink-200 text-gray-900"
+              placeholder="Your Company or Portfolio"
             />
           </div>
           
@@ -205,6 +225,20 @@ export default function JoinForm() {
               onChange={(e) => setInstagram(e.target.value)}
               className="bg-white/80 border-pink-200 text-gray-900"
               placeholder="@yourusername"
+            />
+          </div>
+          
+          <div className="space-y-2">
+            <Label htmlFor="country" className="text-pink-700 font-medium">
+              Country
+            </Label>
+            <Input
+              type="text"
+              id="country"
+              value={country}
+              onChange={(e) => setCountry(e.target.value)}
+              className="bg-white/80 border-pink-200 text-gray-900"
+              placeholder="Your Country"
             />
           </div>
           

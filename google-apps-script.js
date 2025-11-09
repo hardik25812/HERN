@@ -12,8 +12,10 @@ function doPost(e) {
         email: "test@example.com",
         phone: "1234567890",
         profession: "Test Profession",
+        company: "Test Company",
         linkedin: "https://linkedin.com/in/testuser",
-        instagram: "@testuser"
+        instagram: "@testuser",
+        country: "Test Country"
       });
       
       return ContentService.createTextOutput(JSON.stringify({
@@ -62,9 +64,11 @@ function processFormData(data) {
       data.name || "",
       data.email || "",
       data.phone || "",
-      data.profession || "", // Include the profession field
+      data.profession || "",
+      data.company || "",
       data.linkedin || "",
-      data.instagram || ""
+      data.instagram || "",
+      data.country || ""
     ];
     
     // Append the data to the sheet
@@ -137,6 +141,10 @@ function sendConfirmationEmail(data) {
             <li><strong>Email:</strong> ${data.email || "Not provided"}</li>
             <li><strong>Phone:</strong> ${data.phone || "Not provided"}</li>
             <li><strong>Profession:</strong> ${data.profession || "Not provided"}</li>
+            <li><strong>Company/Portfolio:</strong> ${data.company || "Not provided"}</li>
+            <li><strong>LinkedIn:</strong> ${data.linkedin || "Not provided"}</li>
+            <li><strong>Instagram:</strong> ${data.instagram || "Not provided"}</li>
+            <li><strong>Country:</strong> ${data.country || "Not provided"}</li>
           </ul>
         </div>
         
