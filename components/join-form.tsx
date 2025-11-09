@@ -253,7 +253,7 @@ export default function JoinForm() {
               </>
             ) : (
               <div className="flex items-center justify-center">
-                <span className="text-white">Join the Waitlist 👭</span>
+                <span className="text-white">Join the Waitlist</span>
               </div>
             )}
           </ButtonCta>
